@@ -6,9 +6,10 @@ from io import open
 ruta = ""  # Almacena la ruta del fichero
 
 def salirSinGuardar():
-    fichero = ""
-    contenido = texto.get(1.0,'end-1c')
-    if contenido != fichero:
+    fichero = open(ruta, 'r')
+    contenido = fichero.read()
+    context = texto.get(1.0,'end-1c')
+    if context != contenido:
         result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
         if result != None:
             if result:
