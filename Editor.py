@@ -5,13 +5,20 @@ from io import open
 
 ruta = ""  # Almacena la ruta del fichero
 
-def sugerencia():
-    mensaje.set("No te olvides de guardar!")
-    result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
-    if result:
-        root.destroy()
+def salirSinGuardar():
+    fichero = ""
+    contenido = texto.get(1.0,'end-1c')
+    if contenido != fichero:
+        result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
+        if result != None:
+            if result:
+                root.destroy()
+            else:
+              guardar()
+        else:
+            pass
     else:
-        guardar()
+      root.destroy()
 
 
 
@@ -100,5 +107,5 @@ monitor.pack(side="left")
 
 root.config(menu=menubar)
 # Finalmente bucle de la aplicacion
-root.protocol("WM_DELETE_WINDOW", sugerencia)
+root.protocol("WM_DELETE_WINDOW", salirSinGuardar)
 root.mainloop()
