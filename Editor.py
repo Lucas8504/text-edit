@@ -6,10 +6,10 @@ from io import open
 ruta = ""  # Almacena la ruta del fichero
 
 def salirSinGuardar():
-    fichero = open(ruta, 'r')
-    contenido = fichero.read()
-    context = texto.get(1.0,'end-1c')
-    if context != contenido:
+    fichero = open(ruta, 'r')          # Abre el fichero y guarda la informacion en la variable
+    contenido = fichero.read()         # Lee el fichero y guarda el contenido
+    context = texto.get(1.0,'end-1c')  # Guarda el contenido del cuadro de texto
+    if context != contenido:           # Compara las variables para detectar cambios en el fichero
         result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
         if result != None:
             if result:
