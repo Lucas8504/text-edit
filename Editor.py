@@ -20,12 +20,16 @@ def CsinGuardar():
 def sin_guardar():
     context = texto.get(1.0, 'end-1c')  # Guarda el contenido del cuadro de texto
     if context != "":
-        fichero = open(ruta, 'r')  # Abre el fichero y guarda la informacion en la variable
-        contenido = fichero.read()  # Lee el fichero y guarda el contenido
-        if context != contenido:  # Compara las variables para detectar cambios en el fichero
+        if ruta == "":
             CsinGuardar()
+
         else:
-            root.destroy()
+            fichero = open(ruta, 'r')  # Abre el fichero y guarda la informacion en la variable
+            contenido = fichero.read()  # Lee el fichero y guarda el contenido
+            if context != contenido:  # Compara las variables para detectar cambios en el fichero
+                CsinGuardar()
+            else:
+                root.destroy()
     else:
         root.destroy()
 
