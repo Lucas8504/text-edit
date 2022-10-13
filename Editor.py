@@ -5,20 +5,27 @@ from io import open
 
 ruta = ""  # Almacena la ruta del fichero
 
+def CsinGuardar():
+    result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
+    if result is not None:
+        if result:
+            root.destroy()
+        else:
+            guardar()
+            root.destroy()
+    else:
+        root.destroy()
+
 
 def sin_guardar():
-    fichero = open(ruta, 'r')  # Abre el fichero y guarda la informacion en la variable
-    contenido = fichero.read()  # Lee el fichero y guarda el contenido
     context = texto.get(1.0, 'end-1c')  # Guarda el contenido del cuadro de texto
-    if context != contenido:  # Compara las variables para detectar cambios en el fichero
-        result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
-        if result is not None:
-            if result:
-                root.destroy()
-            else:
-                guardar()
+    if context != "":
+        fichero = open(ruta, 'r')  # Abre el fichero y guarda la informacion en la variable
+        contenido = fichero.read()  # Lee el fichero y guarda el contenido
+        if context != contenido:  # Compara las variables para detectar cambios en el fichero
+            CsinGuardar()
         else:
-            pass
+            root.destroy()
     else:
         root.destroy()
 
@@ -103,5 +110,5 @@ monitor.pack(side="left")
 
 root.config(menu=menubar)
 # Finalmente bucle de la aplicacion
-root.protocol("WM_DELETE_WINDOW", sin_guardar())
+root.protocol("WM_DELETE_WINDOW", sin_guardar)
 root.mainloop()
