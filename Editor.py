@@ -5,6 +5,7 @@ from io import open
 
 ruta = ""  # Almacena la ruta del fichero
 
+# funcion que pregunta si salir sin guardar
 def CsinGuardar():
     result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
     if result is not None:
@@ -17,6 +18,7 @@ def CsinGuardar():
         root.destroy()
 
 
+# funcion que compara el estado del fichero, contenido y ruta antes de guardar.
 def sin_guardar():
     context = texto.get(1.0, 'end-1c')  # Guarda el contenido del cuadro de texto
     if context != "":
