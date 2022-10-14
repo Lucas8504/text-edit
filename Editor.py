@@ -100,7 +100,7 @@ filemenu.add_command(label="Guardar", command=guardar)
 filemenu.add_command(label="Guardar como", command=guardar_como)
 filemenu.add_separator()
 
-filemenu.add_command(label="Salir", command=root.quit)
+filemenu.add_command(label="Salir", command=sin_guardar)
 menubar.add_cascade(menu=filemenu, label="Archivo")
 
 # Caja de texto central
