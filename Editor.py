@@ -108,13 +108,13 @@ texto = Text(root)
 texto.pack(fill="both", expand=1)
 texto.config(bd=0, padx=6, pady=4, font=("Consolas", 12))
 
-# Monitor imferior
+# Monitor inferior
 mensaje = StringVar()
-mensaje.set("Biemvenido a tu editor")
+mensaje.set("Bienvenido a tu editor")
 monitor = Label(root, textvariable=mensaje, justify="left")
 monitor.pack(side="left")
 
 root.config(menu=menubar)
-# Finalmente bucle de la aplicacion
 root.protocol("WM_DELETE_WINDOW", sin_guardar)
+# Finalmente bucle de la aplicacion
 root.mainloop()
