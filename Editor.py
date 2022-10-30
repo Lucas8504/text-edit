@@ -8,7 +8,7 @@ ruta = ""  # Almacena la ruta del fichero
 # funcion que pregunta si salir sin guardar
 def CsinGuardar():
     result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
-    if result is not None:
+    if result is not None:             # None es Cancel esta condicional identifica a cancel para cancelar la operacion
         if result:
             root.destroy()
         else:
