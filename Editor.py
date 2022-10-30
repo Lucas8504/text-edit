@@ -15,7 +15,7 @@ def CsinGuardar():
             guardar()
             root.destroy()
     else:
-        root.destroy()
+        pass
 
 
 # funcion que compara el estado del fichero, contenido y ruta antes de guardar.
