@@ -21,7 +21,7 @@ def CsinGuardar():
 
 # funcion que compara el estado del fichero, contenido y ruta antes de guardar.
 def sin_guardar():
-    context = texto.get(1.0, 'end-1c')  # Guarda el contenido del cuadro de texto
+    context = text.get(1.0, 'end-1c')  # Guarda el contenido del cuadro de texto
     if context != "":
         if ruta == "":
             CsinGuardar()
@@ -41,7 +41,7 @@ def nuevo(event=None):
     global ruta
     mensaje.set("Nuevo fichero")
     ruta = ""
-    texto.delete(1.0, "end")
+    text.delete(1.0, "end")
     root.title("Mi editor.")
 
 
@@ -55,7 +55,7 @@ def abrir(event=None):
     if ruta != "":
         fichero = open(ruta, 'r')
         contenido = fichero.read()
-        texto.insert('insert', contenido)
+        text.insert('insert', contenido)
         fichero.close()
         root.title("Mi editor .  " + ruta)
 
@@ -63,7 +63,7 @@ def abrir(event=None):
 def guardar():
     mensaje.set("Guardar fichero")
     if ruta != "":
-        contenido = texto.get(1.0, 'end-1c')
+        contenido = text.get(1.0, 'end-1c')
         fichero = open(ruta, 'w+')
         fichero.write(contenido)
         fichero.close()
@@ -78,7 +78,7 @@ def guardar_como():
     fichero = filedialog.asksaveasfile(title="Guardar fichero", mode="w", defaultextension=".txt")
     if fichero is not None:
         ruta = fichero.name
-        contenido = texto.get(1.0, 'end-1c')
+        contenido = text.get(1.0, 'end-1c')
         fichero = open(ruta, 'w+')
         fichero.write(contenido)
         fichero.close()
@@ -106,9 +106,9 @@ file_Menu.add_command(label="Salir", command=sin_guardar)
 menubar.add_cascade(menu=file_Menu, label="Archivo")
 
 # Caja de texto central
-texto = Text(root)
-texto.pack(fill="both", expand=1)
-texto.config(bd=0, padx=6, pady=4, font=("Consolas", 12))
+text = Text(root)
+text.pack(fill="both", expand=1)
+text.config(bd=0, padx=6, pady=4, font=("Consolas", 12))
 
 # Monitor inferior
 mensaje = StringVar()
@@ -116,7 +116,7 @@ mensaje.set("Bienvenido a tu editor")
 monitor = Label(root, textvariable=mensaje, justify="left")
 monitor.pack(side='left')
 
-texto.bind('<Control-n>', nuevo)
+text.bind('<Control-n>', nuevo)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
