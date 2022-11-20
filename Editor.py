@@ -93,6 +93,7 @@ root.title("Mi editor")
 
 # Menu superior
 menubar = Menu(root)
+# Menu archivo
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Nuevo", command=nuevo)
 filemenu.add_command(label="Abrir", command=abrir)
