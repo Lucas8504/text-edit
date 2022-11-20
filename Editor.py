@@ -60,7 +60,7 @@ def abrir(event=None):
         root.title("Mi editor .  " + ruta)
 
 
-def guardar():
+def guardar(event=None):
     mensaje.set("Guardar fichero")
     if ruta != "":
         contenido = text.get(1.0, 'end-1c')
@@ -72,7 +72,7 @@ def guardar():
         guardar_como()
 
 
-def guardar_como():
+def guardar_como(event=None):
     global ruta
     mensaje.set("Guardar fichero como")
     fichero = filedialog.asksaveasfile(title="Guardar fichero", mode="w", defaultextension=".txt")
@@ -97,9 +97,9 @@ menubar = Menu(root)
 # Menu archivo
 file_Menu = Menu(menubar, tearoff=0)
 file_Menu.add_command(label="Nuevo", accelerator="Ctrl+N", command=nuevo)
-file_Menu.add_command(label="Abrir", command=abrir)
-file_Menu.add_command(label="Guardar", command=guardar)
-file_Menu.add_command(label="Guardar como", command=guardar_como)
+file_Menu.add_command(label="Abrir", accelerator="Ctrl+A", command=abrir)
+file_Menu.add_command(label="Guardar", accelerator="Ctrl+G", command=guardar)
+file_Menu.add_command(label="Guardar como", accelerator="Ctrl+G+Shift", command=guardar_como)
 file_Menu.add_separator()
 
 file_Menu.add_command(label="Salir", command=sin_guardar)
@@ -116,7 +116,11 @@ mensaje.set("Bienvenido a tu editor")
 monitor = Label(root, textvariable=mensaje, justify="left")
 monitor.pack(side='left')
 
+
 text.bind('<Control-n>', nuevo)
+text.bind('<Control-a>', abrir)
+text.bind('<Control-g>', guardar)
+text.bind('<Control-Shift-S>', guardar_como)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
