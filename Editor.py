@@ -5,10 +5,11 @@ from io import open
 
 ruta = ""  # Almacena la ruta del fichero
 
+
 # funcion que pregunta si salir sin guardar
 def CsinGuardar():
     result = messagebox.askyesnocancel("Salir", "¿Quieres salir sin guardar?")
-    if result is not None:             # None es Cancel esta condicional identifica a cancel para cancelar la operacion
+    if result is not None:  # None es Cancel esta condicional identifica a cancel para cancelar la operacion
         if result:
             root.destroy()
         else:
@@ -36,7 +37,7 @@ def sin_guardar():
         root.destroy()
 
 
-def nuevo():
+def nuevo(event=None):
     global ruta
     mensaje.set("Nuevo fichero")
     ruta = ""
@@ -44,7 +45,7 @@ def nuevo():
     root.title("Mi editor.")
 
 
-def abrir():
+def abrir(event=None):
     global ruta
     mensaje.set("Abrir fichero")
     ruta = filedialog.askopenfilename(initialdir="c:",
@@ -113,9 +114,11 @@ texto.config(bd=0, padx=6, pady=4, font=("Consolas", 12))
 mensaje = StringVar()
 mensaje.set("Bienvenido a tu editor")
 monitor = Label(root, textvariable=mensaje, justify="left")
-monitor.pack(side="left")
+monitor.pack(side='left')
+
+texto.bind('<Control-n>', nuevo)
 
 root.config(menu=menubar)
-root.protocol("WM_DELETE_WINDOW", sin_guardar)
+root.protocol('WM_DELETE_WINDOW', sin_guardar)
 # Finalmente bucle de la aplicacion
 root.mainloop()
