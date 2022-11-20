@@ -116,7 +116,7 @@ mensaje.set("Bienvenido a tu editor")
 monitor = Label(root, textvariable=mensaje, justify="left")
 monitor.pack(side='left')
 
-
+# Atajos del teclado
 text.bind('<Control-n>', nuevo)
 text.bind('<Control-a>', abrir)
 text.bind('<Control-g>', guardar)
