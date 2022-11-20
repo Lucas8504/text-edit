@@ -94,15 +94,15 @@ root.title("Mi editor")
 # Menu superior
 menubar = Menu(root)
 # Menu archivo
-filemenu = Menu(menubar, tearoff=0)
-filemenu.add_command(label="Nuevo", command=nuevo)
-filemenu.add_command(label="Abrir", command=abrir)
-filemenu.add_command(label="Guardar", command=guardar)
-filemenu.add_command(label="Guardar como", command=guardar_como)
-filemenu.add_separator()
+file_Menu = Menu(menubar, tearoff=0)
+file_Menu.add_command(label="Nuevo", accelerator="Ctrl+N", command=nuevo)
+file_Menu.add_command(label="Abrir", command=abrir)
+file_Menu.add_command(label="Guardar", command=guardar)
+file_Menu.add_command(label="Guardar como", command=guardar_como)
+file_Menu.add_separator()
 
-filemenu.add_command(label="Salir", command=sin_guardar)
-menubar.add_cascade(menu=filemenu, label="Archivo")
+file_Menu.add_command(label="Salir", command=sin_guardar)
+menubar.add_cascade(menu=file_Menu, label="Archivo")
 
 # Caja de texto central
 texto = Text(root)
