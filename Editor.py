@@ -106,7 +106,7 @@ file_Menu.add_separator()
 file_Menu.add_command(label="Salir", command=sin_guardar)
 menubar.add_cascade(menu=file_Menu, label="Archivo")
 
-# Edit Menu.
+# Menu editar.
 edit_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
 
