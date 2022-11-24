@@ -94,6 +94,7 @@ root.title("Mi editor")
 
 # Menu superior
 menubar = Menu(root)
+
 # Menu archivo
 file_Menu = Menu(menubar, tearoff=0)
 file_Menu.add_command(label="Nuevo", accelerator="Ctrl+N", command=nuevo)
@@ -104,6 +105,21 @@ file_Menu.add_separator()
 
 file_Menu.add_command(label="Salir", command=sin_guardar)
 menubar.add_cascade(menu=file_Menu, label="Archivo")
+
+# Edit Menu.
+edit_menu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
+
+edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0)
+edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0)
+edit_menu.add_separator()
+edit_menu.add_command(label="cortar", compound='left', accelerator='Ctrl+X', underline=0)
+edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1)
+edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0)
+edit_menu.add_command(label="eliminar", accelerator='Suprimir',underline=0)
+edit_menu.add_separator()
+edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0)
+edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Caja de texto central
 text = Text(root)
