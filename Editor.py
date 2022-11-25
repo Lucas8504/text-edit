@@ -36,7 +36,7 @@ def sin_guardar():
     else:
         root.destroy()
 
-
+# funcion nuevo fichero
 def nuevo(event=None):
     global ruta
     mensaje.set("Nuevo fichero")
