@@ -37,7 +37,7 @@ def sin_guardar():
         root.destroy()
 
 # funcion nuevo fichero
-def nuevo(event=None):
+def nuevo(event=None): # event none permite ejecutar correctamente el metodo bind
     global ruta
     mensaje.set("Nuevo fichero")
     ruta = ""
@@ -45,6 +45,7 @@ def nuevo(event=None):
     root.title("Mi editor.")
 
 
+# Funcion abrir fichero
 def abrir(event=None):
     global ruta
     mensaje.set("Abrir fichero")
@@ -60,6 +61,7 @@ def abrir(event=None):
         root.title("Mi editor .  " + ruta)
 
 
+# Funcion guardar fichero
 def guardar(event=None):
     mensaje.set("Guardar fichero")
     if ruta != "":
@@ -72,6 +74,7 @@ def guardar(event=None):
         guardar_como()
 
 
+# Funcion guardar como
 def guardar_como(event=None):
     global ruta
     mensaje.set("Guardar fichero como")
