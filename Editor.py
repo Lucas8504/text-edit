@@ -36,8 +36,16 @@ def sin_guardar():
     else:
         root.destroy()
 
+
+# Funcion copiar
+def copiar(event=None):
+    mensaje.set("Copiado")
+    root.clipboard_clear()
+    text.clipboard_append(string=text.selection_get())
+
+
 # funcion nuevo fichero
-def nuevo(event=None): # event none permite ejecutar correctamente el metodo bind
+def nuevo(event=None):  # event none permite ejecutar correctamente el metodo bind
     global ruta
     mensaje.set("Nuevo fichero")
     ruta = ""
@@ -117,9 +125,9 @@ edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', under
 edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0)
 edit_menu.add_separator()
 edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0)
-edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1)
+edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
 edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0)
-edit_menu.add_command(label="Eliminar", accelerator='Suprimir',underline=0)
+edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0)
 edit_menu.add_separator()
 edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0)
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
@@ -140,6 +148,7 @@ text.bind('<Control-n>', nuevo)
 text.bind('<Control-a>', abrir)
 text.bind('<Control-g>', guardar)
 text.bind('<Control-Shift-S>', guardar_como)
+text.bind('<Control-c>', copiar)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
