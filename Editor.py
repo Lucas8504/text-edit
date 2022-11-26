@@ -43,6 +43,13 @@ def copiar(event=None):
     root.clipboard_clear()
     text.clipboard_append(string=text.selection_get())
 
+# Funcion cortar
+def cortar(event=None):
+    mensaje.set("Cortado")
+    root.clipboard_clear()
+    text.clipboard_append(string=text.selection_get())
+    text.delete(index1=SEL_FIRST, index2=SEL_LAST)
+
 
 # funcion nuevo fichero
 def nuevo(event=None):  # event none permite ejecutar correctamente el metodo bind
@@ -124,7 +131,7 @@ menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
 edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0)
 edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0)
 edit_menu.add_separator()
-edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0)
+edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0, command=cortar)
 edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
 edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0)
 edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0)
@@ -149,6 +156,7 @@ text.bind('<Control-a>', abrir)
 text.bind('<Control-g>', guardar)
 text.bind('<Control-Shift-S>', guardar_como)
 text.bind('<Control-c>', copiar)
+text.bind('<Control-x>', cortar)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
