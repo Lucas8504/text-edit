@@ -36,6 +36,9 @@ def sin_guardar():
     else:
         root.destroy()
 
+# funcion pegar
+def pegar(event=None):
+    text.insert(INSERT, root.clipboard_get())
 
 # Funcion copiar
 def copiar(event=None):
@@ -134,7 +137,7 @@ edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', under
 edit_menu.add_separator()
 edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0, command=cortar)
 edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
-edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0)
+edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0, command=pegar)
 edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0)
 edit_menu.add_separator()
 edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0)
@@ -158,6 +161,7 @@ text.bind('<Control-g>', guardar)
 text.bind('<Control-Shift-S>', guardar_como)
 text.bind('<Control-c>', copiar)
 text.bind('<Control-x>', cortar)
+text.bind('<Control-p>', pegar)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
