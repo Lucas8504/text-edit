@@ -128,6 +128,7 @@ menubar.add_cascade(menu=file_Menu, label="Archivo")
 edit_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
 
+# Instrucciones de menu editar
 edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0)
 edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0)
 edit_menu.add_separator()
