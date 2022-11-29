@@ -36,10 +36,12 @@ def sin_guardar():
     else:
         root.destroy()
 
+
 # funcion pegar
 def pegar(event=None):
     text.insert(INSERT, root.clipboard_get())
     mensaje.set("Pegado")
+
 
 # Funcion copiar
 def copiar(event=None):
@@ -47,11 +49,22 @@ def copiar(event=None):
     root.clipboard_clear()
     text.clipboard_append(string=text.selection_get())
 
+
 # Funcion cortar
 def cortar(event=None):
     mensaje.set("Cortado")
     root.clipboard_clear()
     text.clipboard_append(string=text.selection_get())
+    text.delete(index1=SEL_FIRST, index2=SEL_LAST)
+
+
+# funcion selecionar to`do
+def seleccionar_todo(event=None):
+    text.tag_add(SEL, "1.0", END)
+
+
+# Funcion eliminar
+def eliminar():
     text.delete(index1=SEL_FIRST, index2=SEL_LAST)
 
 
@@ -123,7 +136,7 @@ file_Menu.add_command(label="Nuevo", accelerator="Ctrl+N", command=nuevo)
 file_Menu.add_command(label="Abrir", accelerator="Ctrl+A", command=abrir)
 file_Menu.add_command(label="Guardar", accelerator="Ctrl+G", command=guardar)
 file_Menu.add_command(label="Guardar como", accelerator="Ctrl+G+Shift", command=guardar_como)
-file_Menu.add_separator() # Separador
+file_Menu.add_separator()  # Separador
 
 file_Menu.add_command(label="Salir", command=sin_guardar)
 menubar.add_cascade(menu=file_Menu, label="Archivo")
@@ -139,9 +152,9 @@ edit_menu.add_separator()
 edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0, command=cortar)
 edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
 edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0, command=pegar)
-edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0)
+edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0, command=eliminar)
 edit_menu.add_separator()
-edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0)
+edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0, command=seleccionar_todo)
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Caja de texto central
@@ -163,6 +176,8 @@ text.bind('<Control-Shift-S>', guardar_como)
 text.bind('<Control-c>', copiar)
 text.bind('<Control-x>', cortar)
 text.bind('<Control-p>', pegar)
+text.bind('<Delete>', eliminar)
+text.bind('<Control-e>', seleccionar_todo)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
