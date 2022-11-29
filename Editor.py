@@ -20,7 +20,7 @@ def CsinGuardar():
 
 
 # funcion que compara el estado del fichero, contenido y ruta antes de guardar.
-def sin_guardar():
+def sin_guardar(event=None):
     context = text.get(1.0, 'end-1c')  # Guarda el contenido del cuadro de texto
     if context != "":
         if ruta == "":
@@ -140,7 +140,7 @@ file_Menu.add_command(label="Guardar", accelerator="Ctrl+G", command=guardar)
 file_Menu.add_command(label="Guardar como", accelerator="Ctrl+G+Shift", command=guardar_como)
 file_Menu.add_separator()  # Separador
 
-file_Menu.add_command(label="Salir", command=sin_guardar)
+file_Menu.add_command(label="Salir", accelerator="Alt+F4", command=sin_guardar)
 menubar.add_cascade(menu=file_Menu, label="Archivo")
 
 # Menu editar.
@@ -180,6 +180,7 @@ text.bind('<Control-x>', cortar)
 text.bind('<Control-p>', pegar)
 text.bind('<Delete>', eliminar)
 text.bind('<Control-e>', selecionar_todo)
+text.bind('<Control-s>', sin_guardar)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
