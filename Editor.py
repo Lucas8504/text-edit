@@ -39,6 +39,7 @@ def sin_guardar():
 # funcion pegar
 def pegar(event=None):
     text.insert(INSERT, root.clipboard_get())
+    mensaje.set("Pegado")
 
 # Funcion copiar
 def copiar(event=None):
