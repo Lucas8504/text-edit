@@ -65,7 +65,7 @@ def selecionar_todo(event=None):
 
 
 # Funcion eliminar
-def eliminar():
+def eliminar(event=None):
     text.delete(index1=SEL_FIRST, index2=SEL_LAST)
     mensaje.set("Eliminado")
 
