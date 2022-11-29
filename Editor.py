@@ -59,13 +59,15 @@ def cortar(event=None):
 
 
 # funcion selecionar to`do
-def seleccionar_todo(event=None):
+def selecionar_todo(event=None):
     text.tag_add(SEL, "1.0", END)
+    mensaje.set("Todo selecionado")
 
 
 # Funcion eliminar
 def eliminar():
     text.delete(index1=SEL_FIRST, index2=SEL_LAST)
+    mensaje.set("Eliminado")
 
 
 # funcion nuevo fichero
@@ -154,7 +156,7 @@ edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', und
 edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', underline=0, command=pegar)
 edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0, command=eliminar)
 edit_menu.add_separator()
-edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0, command=seleccionar_todo)
+edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0, command=selecionar_todo)
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Caja de texto central
@@ -177,7 +179,7 @@ text.bind('<Control-c>', copiar)
 text.bind('<Control-x>', cortar)
 text.bind('<Control-p>', pegar)
 text.bind('<Delete>', eliminar)
-text.bind('<Control-e>', seleccionar_todo)
+text.bind('<Control-e>', selecionar_todo)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
