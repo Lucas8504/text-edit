@@ -140,7 +140,7 @@ file_Menu.add_command(label="Guardar", accelerator="Ctrl+G", command=guardar)
 file_Menu.add_command(label="Guardar como", accelerator="Ctrl+G+Shift", command=guardar_como)
 file_Menu.add_separator()  # Separador
 
-file_Menu.add_command(label="Salir", accelerator="Alt+F4", command=sin_guardar)
+file_Menu.add_command(label="Salir", accelerator="Ctrl+S", command=sin_guardar)
 menubar.add_cascade(menu=file_Menu, label="Archivo")
 
 # Menu editar.
