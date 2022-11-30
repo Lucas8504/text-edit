@@ -38,6 +38,15 @@ def sin_guardar(event=None):
         root.destroy()
 
 
+def redo(event=None):
+    text.edit_redo()
+    mensaje.set("Re-echo")
+
+
+def undo(event=None):
+    text.edit_undo()
+    mensaje.set("desecho")
+
 # funcion pegar
 def pegar(event=None):
     text.insert(INSERT, root.clipboard_get())
@@ -149,8 +158,8 @@ edit_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
 
 # Instrucciones de menu editar
-edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0)
-edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0)
+edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0, command=undo)
+edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0, command=redo)
 edit_menu.add_separator()
 edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0, command=cortar)
 edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
@@ -161,7 +170,7 @@ edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Caja de texto central
-text = Text(root)
+text = Text(root, undo=True)
 text.pack(fill="both", expand=1)
 text.config(bd=0, padx=6, pady=4, font=("Consolas", 12))
 
@@ -182,6 +191,8 @@ text.bind('<Control-p>', pegar)
 text.bind('<Delete>', eliminar)
 text.bind('<Control-e>', selecionar_todo)
 text.bind('<Control-s>', sin_guardar)
+text.bind('<Control-z>', undo)
+text.bind('<Control-y>', redo)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
