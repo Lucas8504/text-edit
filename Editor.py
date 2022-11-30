@@ -40,12 +40,12 @@ def sin_guardar(event=None):
 # Funcion rehacer
 def rehacer(event=None):
     text.edit_redo()
-    mensaje.set("Re-echo")
+    mensaje.set("Rehecho")
 
 # Funcion deshacer
 def deshacer(event=None):
     text.edit_undo()
-    mensaje.set("desecho")
+    mensaje.set("deshecho")
 
 # funcion pegar
 def pegar(event=None):
