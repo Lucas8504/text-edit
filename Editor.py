@@ -37,13 +37,13 @@ def sin_guardar(event=None):
     else:
         root.destroy()
 
-
-def redo(event=None):
+# Funcion rehacer
+def rehacer(event=None):
     text.edit_redo()
     mensaje.set("Re-echo")
 
-
-def undo(event=None):
+# Funcion deshacer
+def deshacer(event=None):
     text.edit_undo()
     mensaje.set("desecho")
 
@@ -158,8 +158,8 @@ edit_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
 
 # Instrucciones de menu editar
-edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0, command=undo)
-edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0, command=redo)
+edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0, command=deshacer)
+edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0, command=rehacer)
 edit_menu.add_separator()
 edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0, command=cortar)
 edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
@@ -191,8 +191,8 @@ text.bind('<Control-p>', pegar)
 text.bind('<Delete>', eliminar)
 text.bind('<Control-e>', selecionar_todo)
 text.bind('<Control-s>', sin_guardar)
-text.bind('<Control-z>', undo)
-text.bind('<Control-y>', redo)
+text.bind('<Control-z>', deshacer)
+text.bind('<Control-y>', rehacer)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
