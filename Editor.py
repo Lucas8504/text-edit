@@ -169,6 +169,10 @@ edit_menu.add_separator()
 edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0, command=selecionar_todo)
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
+# Menu formato
+format_menu = Menu(menubar,tearoff=0)
+menubar.add_cascade(label="Formato", menu=format_menu, underline=0)
+
 # Caja de texto central
 text = Text(root, undo=True)
 text.pack(fill="both", expand=1)
@@ -196,5 +200,6 @@ text.bind('<Control-y>', rehacer)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
+
 # Finalmente bucle de la aplicacion
 root.mainloop()
