@@ -158,8 +158,8 @@ edit_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Editar", menu=edit_menu, underline=0)
 
 # Instrucciones de menu editar
-edit_menu.add_command(label="Undo", compound='left', accelerator='Ctrl+Z', underline=0, command=deshacer)
-edit_menu.add_command(label="Redo", compound='left', accelerator='Ctrl+Y', underline=0, command=rehacer)
+edit_menu.add_command(label="Deshacer", compound='left', accelerator='Ctrl+Z', underline=0, command=deshacer)
+edit_menu.add_command(label="Rehacer", compound='left', accelerator='Ctrl+Y', underline=0, command=rehacer)
 edit_menu.add_separator()
 edit_menu.add_command(label="Cortar", compound='left', accelerator='Ctrl+X', underline=0, command=cortar)
 edit_menu.add_command(label="Copiar", compound='left', accelerator='Ctrl+C', underline=1, command=copiar)
