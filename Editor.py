@@ -173,6 +173,10 @@ edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 format_menu = Menu(menubar,tearoff=0)
 menubar.add_cascade(label="Formato", menu=format_menu, underline=0)
 
+# Instrucciones de menu formato
+format_menu.add_command(label="Ajuste de linea")
+format_menu.add_command(label="Fuente...")
+
 # Caja de texto central
 text = Text(root, undo=True)
 text.pack(fill="both", expand=1)
