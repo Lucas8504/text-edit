@@ -37,15 +37,18 @@ def sin_guardar(event=None):
     else:
         root.destroy()
 
+
 # Funcion rehacer
 def rehacer(event=None):
     text.edit_redo()
     mensaje.set("Rehecho")
 
+
 # Funcion deshacer
 def deshacer(event=None):
     text.edit_undo()
     mensaje.set("deshecho")
+
 
 # funcion pegar
 def pegar(event=None):
@@ -170,7 +173,7 @@ edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Menu formato
-format_menu = Menu(menubar,tearoff=0)
+format_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Formato", menu=format_menu, underline=0)
 
 # Instrucciones de menu formato
