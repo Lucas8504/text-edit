@@ -60,7 +60,11 @@ def pegar(event=None):
 def copiar(event=None):
     mensaje.set("Copiado")
     root.clipboard_clear()
-    text.clipboard_append(string=text.selection_get())
+    try:
+        text.clipboard_append(string=text.selection_get())
+
+    except:
+        mensaje.set("No hay nada que copiar")
 
 
 # Funcion cortar
