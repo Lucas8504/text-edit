@@ -52,8 +52,12 @@ def deshacer(event=None):
 
 # funcion pegar
 def pegar(event=None):
-    text.insert(INSERT, root.clipboard_get())
-    mensaje.set("Pegado")
+    try:
+        text.insert(INSERT, root.clipboard_get())
+        mensaje.set("Pegado")
+
+    except:
+        mensaje.set("no hay nada que pegar")
 
 
 # Funcion copiar
