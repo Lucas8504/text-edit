@@ -71,8 +71,13 @@ def copiar(event=None):
 def cortar(event=None):
     mensaje.set("Cortado")
     root.clipboard_clear()
-    text.clipboard_append(string=text.selection_get())
-    text.delete(index1=SEL_FIRST, index2=SEL_LAST)
+    try:
+
+        text.clipboard_append(string=text.selection_get())
+        text.delete(index1=SEL_FIRST, index2=SEL_LAST)
+
+    except:
+        mensaje.set("No hay nada que cortar")
 
 
 # funcion selecionar to`do
