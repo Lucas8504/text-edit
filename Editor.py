@@ -98,8 +98,11 @@ def selecionar_todo(event=None):
 
 # Funcion eliminar
 def eliminar(event=None):
-    text.delete(index1=SEL_FIRST, index2=SEL_LAST)
-    mensaje.set("Eliminado")
+    try:
+        text.delete(index1=SEL_FIRST, index2=SEL_LAST)
+        mensaje.set("Eliminado")
+    except:
+        mensaje.set("No hay nada que eliminar")
 
 
 # funcion nuevo fichero
@@ -156,6 +159,8 @@ def guardar_como(event=None):
         mensaje.set("Guardado cancelado")
         ruta = ""
 
+def ClikDerecho(event=None):
+    mensaje.set("hola")
 
 # Comfiguracion de la raiz
 root = Tk()
