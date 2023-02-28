@@ -40,8 +40,11 @@ def sin_guardar(event=None):
 
 # Funcion rehacer
 def rehacer(event=None):
-    text.edit_redo()
-    mensaje.set("Rehecho")
+    try:
+        text.edit_redo()
+        mensaje.set("Rehecho")
+    except:
+        mensaje.set("no hay nada que rehacer")
 
 
 # Funcion deshacer
