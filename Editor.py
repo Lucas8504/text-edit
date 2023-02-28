@@ -46,8 +46,11 @@ def rehacer(event=None):
 
 # Funcion deshacer
 def deshacer(event=None):
-    text.edit_undo()
-    mensaje.set("deshecho")
+    try:
+        text.edit_undo()
+        mensaje.set("deshecho")
+    except:
+        mensaje.set("No hay nada que deshacer")
 
 
 # funcion pegar
