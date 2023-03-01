@@ -228,6 +228,7 @@ text.bind('<Control-e>', selecionar_todo)
 text.bind('<Control-s>', sin_guardar)
 text.bind('<Control-z>', deshacer)
 text.bind('<Control-y>', rehacer)
+text.bind('<Button-3>', ClikDerecho)
 
 root.config(menu=menubar)
 root.protocol('WM_DELETE_WINDOW', sin_guardar)
