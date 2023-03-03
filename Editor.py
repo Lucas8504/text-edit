@@ -1,3 +1,4 @@
+import tkinter
 from tkinter import *
 from tkinter import filedialog
 from tkinter import messagebox
@@ -159,8 +160,9 @@ def guardar_como(event=None):
         mensaje.set("Guardado cancelado")
         ruta = ""
 
+# Funcion que permite mostrar menu de click derecho
 def ClikDerecho(event=None):
-    mensaje.set("hola")
+    popup.post(event.x_root, event.y_root)
 
 # Comfiguracion de la raiz
 root = Tk()
@@ -214,6 +216,13 @@ mensaje = StringVar()
 mensaje.set("Bienvenido a tu editor")
 monitor = Label(root, textvariable=mensaje, justify="left")
 monitor.pack(side='left')
+
+# Menu click derecho
+
+popup = tkinter.Menu(root, tearoff=0)
+popup.add_command(label="cortar", command=cortar)
+popup.add_command(label="pegar", command=pegar)
+
 
 # Atajos del teclado
 text.bind('<Control-n>', nuevo)
