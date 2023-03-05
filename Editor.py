@@ -220,8 +220,9 @@ monitor.pack(side='left')
 # Menu click derecho
 
 popup = tkinter.Menu(root, tearoff=0)
-popup.add_command(label="cortar", command=cortar)
-popup.add_command(label="pegar", command=pegar)
+popup.add_command(label="Cortar", command=cortar)
+popup.add_command(label="Pegar", command=pegar)
+popup.add_command(label="Copiar", command=copiar)
 
 
 # Atajos del teclado
