@@ -221,7 +221,9 @@ monitor.pack(side='left')
 
 popup = tkinter.Menu(root, tearoff=0)
 popup.add_command(label="Cortar", command=cortar)
+popup.add_separator()  # Separador
 popup.add_command(label="Pegar", command=pegar)
+popup.add_separator()  # Separador
 popup.add_command(label="Copiar", command=copiar)
 
 
