@@ -164,6 +164,13 @@ def guardar_como(event=None):
 def ClikDerecho(event=None):
     popup.post(event.x_root, event.y_root)
 
+
+#Funcion copiar to'do
+def CopiarTodo(event=None):
+    selecionar_todo()
+    copiar()
+
+
 # Comfiguracion de la raiz
 root = Tk()
 root.title("Mi editor")
@@ -233,6 +240,7 @@ text.bind('<Control-a>', abrir)
 text.bind('<Control-g>', guardar)
 text.bind('<Control-Shift-S>', guardar_como)
 text.bind('<Control-c>', copiar)
+text.bind('<Control-Shift-C>',CopiarTodo)
 text.bind('<Control-x>', cortar)
 text.bind('<Control-p>', pegar)
 text.bind('<Delete>', eliminar)
