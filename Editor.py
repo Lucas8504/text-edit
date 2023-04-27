@@ -208,6 +208,7 @@ edit_menu.add_command(label="Pegar", compound='left', accelerator='Ctrl+P', unde
 edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0, command=eliminar)
 edit_menu.add_separator()
 edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0, command=selecionar_todo)
+edit_menu.add_command(label="Copiar todo", accelerator='Ctrl+Shift+C', underline=0, command=CopiarTodo)
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Menu formato
