@@ -170,6 +170,11 @@ def CopiarTodo(event=None):
     selecionar_todo()
     copiar()
 
+#Funcion cortar to'do
+def CortarTodo(event=None):
+    selecionar_todo()
+    cortar()
+
 
 # Comfiguracion de la raiz
 root = Tk()
