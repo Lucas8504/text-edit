@@ -209,6 +209,7 @@ edit_menu.add_command(label="Eliminar", accelerator='Suprimir', underline=0, com
 edit_menu.add_separator()
 edit_menu.add_command(label="Selecionar todo", accelerator='Ctrl+E', underline=0, command=selecionar_todo)
 edit_menu.add_command(label="Copiar todo", accelerator='Ctrl+Shift+C', underline=0, command=CopiarTodo)
+edit_menu.add_command(label="Cortar todo", accelerator='Ctrl+Shift+X', underline=0, command=CortarTodo)
 edit_menu.add_command(label="Borrar todo", accelerator='Ctrl+L', underline=6)
 
 # Menu formato
@@ -247,6 +248,7 @@ text.bind('<Control-g>', guardar)
 text.bind('<Control-Shift-S>', guardar_como)
 text.bind('<Control-c>', copiar)
 text.bind('<Control-Shift-C>',CopiarTodo)
+text.bind('<Control-Shift-X>',CortarTodo)
 text.bind('<Control-x>', cortar)
 text.bind('<Control-p>', pegar)
 text.bind('<Delete>', eliminar)
